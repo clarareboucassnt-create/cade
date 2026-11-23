@@ -1,0 +1,14 @@
+{
+  "categorias": ["Eletrônicos", "Documentos", "Chaves", "Garrafas", "Roupas e acessórios", "Material escolar", "Outros"],
+  "locais": ["Biblioteca", "Cantina", "Bloco A", "Bloco B", "Laboratório de Informática", "Auditório", "Estacionamento", "Quadra"],
+  "itens": [
+    { "id": 1, "nome": "Garrafa térmica azul", "categoria": "Garrafas", "local": "Biblioteca, 2º andar", "data": "hoje", "status": "Disponível", "novo": true },
+    { "id": 2, "nome": "Carregador de celular USB-C", "categoria": "Eletrônicos", "local": "Laboratório de Informática", "data": "ontem", "status": "Disponível", "novo": false },
+    { "id": 3, "nome": "Carteira de estudante", "categoria": "Documentos", "local": "Cantina", "data": "12/11", "status": "Disponível", "novo": false },
+    { "id": 4, "nome": "Chaveiro com 2 chaves", "categoria": "Chaves", "local": "Bloco B", "data": "10/11", "status": "Devolvido", "novo": false },
+    { "id": 5, "nome": "Casaco moletom cinza", "categoria": "Roupas e acessórios", "local": "Auditório", "data": "09/11", "status": "Disponível", "novo": false },
+    { "id": 6, "nome": "Fone de ouvido branco", "categoria": "Eletrônicos", "local": "Bloco A", "data": "08/11", "status": "Disponível", "novo": false },
+    { "id": 7, "nome": "Calculadora científica", "categoria": "Material escolar", "local": "Bloco A", "data": "07/11", "status": "Disponível", "novo": false },
+    { "id": 8, "nome": "Guarda-chuva preto", "categoria": "Outros", "local": "Estacionamento", "data": "05/11", "status": "Devolvido", "novo": false }
+  ]
+}
