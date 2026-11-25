@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início | Cadê?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <main class="tela-inicio">
+
+      <!-- CABEÇALHO -->
+      <header class="topo">
+        <img src="assets/marca/cade-logo-principal.png" alt="Cadê?" width="96">
+        <h1 class="saudacao">Olá, Clara</h1>
+      </header>
+
+      <!-- BUSCA -->
+      <form class="busca" role="search">
+        <label for="campo-busca" class="visualmente-oculto">Buscar objeto</label>
+        <input
+          type="search"
+          id="campo-busca"
+          name="busca"
+          placeholder="Buscar por nome do objeto"
+        >
+      </form>
+
+      <!-- CHIPS DE CATEGORIA -->
+      <section aria-labelledby="titulo-categorias">
+        <h2 id="titulo-categorias" class="visualmente-oculto">Categorias</h2>
+        <ul class="chips">
+          <li><button type="button" class="chip" aria-pressed="true">Todos</button></li>
+          <li><button type="button" class="chip" aria-pressed="false">Eletrônicos</button></li>
+          <li><button type="button" class="chip" aria-pressed="false">Documentos</button></li>
+          <li><button type="button" class="chip" aria-pressed="false">Chaves</button></li>
+          <li><button type="button" class="chip" aria-pressed="false">Garrafas</button></li>
+          <li><button type="button" class="chip" aria-pressed="false">Roupas e acessórios</button></li>
+          <li><button type="button" class="chip" aria-pressed="false">Material escolar</button></li>
+          <li><button type="button" class="chip" aria-pressed="false">Outros</button></li>
+        </ul>
+      </section>
+
+      <!-- LISTA DE ITENS -->
+      <section aria-labelledby="titulo-recentes">
+        <h2 id="titulo-recentes" class="titulo-secao">Encontrados recentemente</h2>
+
+        <ul class="lista-itens">
+
+          <li class="cartao">
+            <div class="cartao-foto" aria-hidden="true"></div>
+            <div>
+              <h3 class="cartao-nome">Garrafa térmica azul</h3>
+              <p class="cartao-detalhe">Biblioteca, 2º andar</p>
+              <p class="cartao-detalhe">Encontrado em 23/11</p>
+              <div class="selos">
+                <span class="selo selo-disponivel">Disponível</span>
+                <span class="selo selo-novo">Novo</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="cartao">
+            <div class="cartao-foto" aria-hidden="true"></div>
+            <div>
+              <h3 class="cartao-nome">Carregador de celular USB-C</h3>
+              <p class="cartao-detalhe">Laboratório de Informática</p>
+              <p class="cartao-detalhe">Encontrado em 22/11</p>
+              <div class="selos">
+                <span class="selo selo-disponivel">Disponível</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="cartao">
+            <div class="cartao-foto" aria-hidden="true"></div>
+            <div>
+              <h3 class="cartao-nome">Chaveiro com 2 chaves</h3>
+              <p class="cartao-detalhe">Bloco B</p>
+              <p class="cartao-detalhe">Encontrado em 10/11</p>
+              <div class="selos">
+                <span class="selo selo-devolvido">Devolvido</span>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- DICA -->
+      <aside class="aviso-dica">
+        <strong>Dica</strong>
+        <p>Os objetos ficam guardados na portaria principal até a devolução.</p>
+      </aside>
+
+    </main>
+  </body>
+</html>
