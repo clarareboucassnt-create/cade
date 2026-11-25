@@ -413,3 +413,248 @@ button:focus-visible {
   border-radius: 50%;
   box-shadow: 0 8px 24px rgba(45, 43, 85, 0.18);
 }
+/* =========================================
+   11. AJUSTES DE APOIO
+   ========================================= */
+
+/* Garante que o atributo hidden sempre esconda */
+[hidden] {
+  display: none !important;
+}
+
+textarea:focus-visible {
+  outline: 2px solid var(--violeta);
+  outline-offset: 2px;
+}
+
+.botao-primario:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   12. TELA "DETALHE DO ITEM"
+   ========================================= */
+.tela-item {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 8px 16px 48px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.voltar {
+  align-self: flex-start;
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  font-weight: 500;
+  color: var(--violeta);
+  text-decoration: none;
+}
+
+.voltar svg {
+  width: 20px;
+  height: 20px;
+}
+
+.item-foto {
+  height: 240px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #A678B9; /* lavanda */
+  background-color: var(--areia);
+  border-radius: var(--raio-campo);
+}
+
+.item-foto svg {
+  width: 96px;
+  height: 96px;
+}
+
+.item-nome {
+  margin: 0 0 4px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+/* Lista de informações em duas colunas */
+.item-info {
+  margin: 0;
+  padding: 16px;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+
+  background-color: var(--branco);
+  border-radius: var(--raio-campo);
+  box-shadow: var(--sombra-cartao);
+}
+
+.item-info dt {
+  font-size: 14px;
+  color: var(--texto-secundario);
+}
+
+.item-info dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.item-descricao {
+  margin: 0;
+}
+
+/* Aviso verde de sucesso */
+.aviso-sucesso {
+  padding: 16px;
+  color: var(--sucesso-texto);
+  background-color: var(--sucesso-fundo);
+  border-radius: var(--raio-campo);
+}
+
+.aviso-sucesso strong {
+  display: block;
+}
+
+.aviso-sucesso p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* =========================================
+   13. MODAL
+   ========================================= */
+.modal {
+  width: calc(100% - 32px);
+  max-width: 420px;
+  padding: 24px;
+
+  color: var(--indigo);
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(45, 43, 85, 0.18);
+}
+
+/* O fundo escuro atrás do modal */
+.modal::backdrop {
+  background-color: rgba(45, 43, 85, 0.5);
+}
+
+.modal h2 {
+  margin: 0 0 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 16px;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--indigo);
+  background-color: var(--branco);
+  border: 1px solid var(--contorno);
+  border-radius: var(--raio-campo);
+  resize: vertical;
+}
+
+.texto-ajuda {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-secundario);
+}
+
+/* Estado de erro */
+textarea[aria-invalid="true"] {
+  border: 2px solid #B3261E;
+}
+
+.mensagem-erro {
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 14px;
+  line-height: 20px;
+  color: #B3261E;
+}
+
+.mensagem-erro svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.modal .botao-primario {
+  margin-top: 8px;
+}
+
+/* Botão de texto (link sublinhado) */
+.botao-texto {
+  min-height: 44px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--violeta);
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* =========================================
+   14. CARTÃO CLICÁVEL
+   ========================================= */
+.cartao {
+  position: relative;
+}
+
+.cartao-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Estica a área de clique do link para o cartão inteiro */
+.cartao-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--raio-campo);
+}
+
+/* O anel de foco aparece em volta do cartão todo */
+.cartao-link:focus-visible {
+  outline: none;
+}
+
+.cartao-link:focus-visible::after {
+  outline: 2px solid var(--violeta);
+  outline-offset: 2px;
+}
