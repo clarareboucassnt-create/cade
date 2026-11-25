@@ -291,3 +291,125 @@ button:focus-visible {
   font-size: 14px;
   line-height: 20px;
 }
+
+/* =========================================
+   9. ÍCONES
+   ========================================= */
+
+/* Ícone grande da categoria, no lugar da foto */
+.cartao-foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A678B9; /* lavanda */
+}
+
+.cartao-foto svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Ícones pequenos de local e data */
+.cartao-detalhe {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cartao-detalhe svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Ícone de check dentro do selo */
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.selo svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* =========================================
+   10. BARRA DE NAVEGAÇÃO INFERIOR
+   ========================================= */
+
+/* Espaço extra embaixo da tela, para a barra não cobrir a dica */
+.tela-inicio {
+  padding-bottom: 112px;
+}
+
+.barra-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: var(--branco);
+  border-top: 1px solid #E6DFD3;
+}
+
+.barra-inferior ul {
+  max-width: 420px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.barra-link {
+  min-width: 44px;
+  min-height: 44px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--texto-secundario);
+  text-decoration: none;
+}
+
+.barra-icone {
+  display: flex;
+  justify-content: center;
+  padding: 2px 16px;
+  border-radius: var(--raio-pilula);
+}
+
+/* Aba da página atual */
+.barra-link[aria-current="page"] {
+  color: var(--violeta);
+}
+
+.barra-link[aria-current="page"] .barra-icone {
+  color: var(--branco);
+  background-color: var(--violeta);
+}
+
+/* Botão redondo "+" (Publicar item) */
+.botao-publicar {
+  width: 56px;
+  height: 56px;
+  margin-top: -24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--indigo);
+  background-color: var(--ambar);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(45, 43, 85, 0.18);
+}
