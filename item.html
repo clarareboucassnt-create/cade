@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garrafa térmica azul | Cadê?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <main class="tela-item">
+
+      <!-- VOLTAR -->
+      <a href="inicio.html" class="voltar">
+        <i data-lucide="arrow-left" aria-hidden="true"></i>
+        Voltar
+      </a>
+
+      <!-- FOTO (por enquanto, o ícone da categoria) -->
+      <div class="item-foto" role="img" aria-label="Sem foto. Categoria: Garrafas">
+        <i data-lucide="glass-water" aria-hidden="true"></i>
+      </div>
+
+      <!-- NOME E SELOS -->
+      <div>
+        <h1 class="item-nome">Garrafa térmica azul</h1>
+        <div class="selos">
+          <span class="selo selo-disponivel">Disponível</span>
+          <span class="selo selo-novo">Novo</span>
+        </div>
+      </div>
+
+      <!-- AVISO DE SUCESSO (começa escondido) -->
+      <div class="aviso-sucesso" id="aviso-sucesso" role="status" tabindex="-1" hidden>
+        <strong>Solicitação enviada!</strong>
+        <p>A portaria vai conferir e te avisar.</p>
+      </div>
+
+      <!-- INFORMAÇÕES -->
+      <dl class="item-info">
+        <dt>Categoria</dt>
+        <dd>Garrafas</dd>
+
+        <dt>Local</dt>
+        <dd>Biblioteca, 2º andar</dd>
+
+        <dt>Encontrado em</dt>
+        <dd>23/11, às 14h20</dd>
+      </dl>
+
+      <p class="item-descricao">
+        Garrafa térmica azul, de inox, com cerca de 500 ml.
+      </p>
+
+      <!-- ONDE RETIRAR -->
+      <aside class="aviso-dica">
+        <strong>Onde retirar</strong>
+        <p>Portaria principal, com documento com foto.</p>
+      </aside>
+
+      <!-- BOTÃO PRINCIPAL -->
+      <button type="button" class="botao-primario" id="botao-e-meu">É meu!</button>
+
+    </main>
+
+    <!-- MODAL "É MEU!" -->
+    <dialog class="modal" id="modal-e-meu" aria-labelledby="titulo-modal">
+      <h2 id="titulo-modal">Confirme que é seu</h2>
+
+      <form id="form-solicitacao" novalidate>
+        <label for="campo-detalhe">Descreva um detalhe que só o dono saberia</label>
+        <textarea
+          id="campo-detalhe"
+          name="detalhe"
+          aria-describedby="ajuda-detalhe erro-detalhe"
+        ></textarea>
+        <p class="texto-ajuda" id="ajuda-detalhe">Por exemplo: um adesivo, um arranhão ou o que tinha dentro.</p>
+
+        <p class="mensagem-erro" id="erro-detalhe" hidden>
+          <i data-lucide="circle-alert" aria-hidden="true"></i>
+          Escreva pelo menos 5 letras para a portaria conseguir conferir.
+        </p>
+
+        <button type="submit" class="botao-primario">Enviar solicitação</button>
+        <button type="button" class="botao-texto" id="botao-cancelar">Cancelar</button>
+      </form>
+    </dialog>
+
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <!-- O comportamento desta tela -->
+    <script src="item.js"></script>
+  </body>
+</html>
