@@ -54,11 +54,19 @@
         <ul class="lista-itens">
 
           <li class="cartao">
-            <div class="cartao-foto" aria-hidden="true"></div>
+            <div class="cartao-foto" aria-hidden="true">
+              <i data-lucide="glass-water"></i>
+            </div>
             <div>
               <h3 class="cartao-nome">Garrafa térmica azul</h3>
-              <p class="cartao-detalhe">Biblioteca, 2º andar</p>
-              <p class="cartao-detalhe">Encontrado em 23/11</p>
+              <p class="cartao-detalhe">
+                <i data-lucide="map-pin" aria-hidden="true"></i>
+                Biblioteca, 2º andar
+              </p>
+              <p class="cartao-detalhe">
+                <i data-lucide="calendar" aria-hidden="true"></i>
+                Encontrado em 23/11
+              </p>
               <div class="selos">
                 <span class="selo selo-disponivel">Disponível</span>
                 <span class="selo selo-novo">Novo</span>
@@ -67,11 +75,19 @@
           </li>
 
           <li class="cartao">
-            <div class="cartao-foto" aria-hidden="true"></div>
+            <div class="cartao-foto" aria-hidden="true">
+              <i data-lucide="smartphone-charging"></i>
+            </div>
             <div>
               <h3 class="cartao-nome">Carregador de celular USB-C</h3>
-              <p class="cartao-detalhe">Laboratório de Informática</p>
-              <p class="cartao-detalhe">Encontrado em 22/11</p>
+              <p class="cartao-detalhe">
+                <i data-lucide="map-pin" aria-hidden="true"></i>
+                Laboratório de Informática
+              </p>
+              <p class="cartao-detalhe">
+                <i data-lucide="calendar" aria-hidden="true"></i>
+                Encontrado em 22/11
+              </p>
               <div class="selos">
                 <span class="selo selo-disponivel">Disponível</span>
               </div>
@@ -79,13 +95,24 @@
           </li>
 
           <li class="cartao">
-            <div class="cartao-foto" aria-hidden="true"></div>
+            <div class="cartao-foto" aria-hidden="true">
+              <i data-lucide="key-round"></i>
+            </div>
             <div>
               <h3 class="cartao-nome">Chaveiro com 2 chaves</h3>
-              <p class="cartao-detalhe">Bloco B</p>
-              <p class="cartao-detalhe">Encontrado em 10/11</p>
+              <p class="cartao-detalhe">
+                <i data-lucide="map-pin" aria-hidden="true"></i>
+                Bloco B
+              </p>
+              <p class="cartao-detalhe">
+                <i data-lucide="calendar" aria-hidden="true"></i>
+                Encontrado em 10/11
+              </p>
               <div class="selos">
-                <span class="selo selo-devolvido">Devolvido</span>
+                <span class="selo selo-devolvido">
+                  <i data-lucide="check" aria-hidden="true"></i>
+                  Devolvido
+                </span>
               </div>
             </div>
           </li>
@@ -100,5 +127,46 @@
       </aside>
 
     </main>
+
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+    <nav class="barra-inferior" aria-label="Navegação principal">
+      <ul>
+        <li>
+          <a href="inicio.html" class="barra-link" aria-current="page">
+            <span class="barra-icone"><i data-lucide="house" aria-hidden="true"></i></span>
+            Início
+          </a>
+        </li>
+        <li>
+          <a href="busca.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="search" aria-hidden="true"></i></span>
+            Buscar
+          </a>
+        </li>
+        <li>
+          <a href="publicar.html" class="botao-publicar" aria-label="Publicar item">
+            <i data-lucide="plus" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="meus-itens.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="package" aria-hidden="true"></i></span>
+            Meus itens
+          </a>
+        </li>
+        <li>
+          <a href="#" class="barra-link">
+            <span class="barra-icone"><i data-lucide="user" aria-hidden="true"></i></span>
+            Perfil
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Biblioteca de ícones Lucide -->
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
