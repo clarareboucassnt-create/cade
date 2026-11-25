@@ -7,14 +7,22 @@
   --indigo: #2D2B55;
   --texto-secundario: #5E5A7A;
   --violeta: #6A5ACD;
+  --ambar: #F4A62A;
+  --areia: #F0D9B5;
+  --lilas-claro: #EFE6F4;
   --contorno: #8E89A8;
+  --sucesso-texto: #1F7A55;
+  --sucesso-fundo: #E3F2EA;
 
+  --raio-pequeno: 8px;
   --raio-campo: 16px;
   --raio-pilula: 999px;
+
+  --sombra-cartao: 0 2px 8px rgba(45, 43, 85, 0.08);
 }
 
 /* =========================================
-   2. AJUSTES GERAIS
+   2. AJUSTES GERAIS (valem para todas as telas)
    ========================================= */
 * {
   box-sizing: border-box;
@@ -29,50 +37,12 @@ body {
   line-height: 24px;
 }
 
-/* =========================================
-   3. TELA "ENTRAR"
-   ========================================= */
-main {
-  min-height: 100vh;
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 48px 16px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-}
-
-main img {
-  height: auto;
-}
-
-h1 {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 32px;
-  text-align: center;
-}
-
-/* =========================================
-   4. FORMULÁRIO
-   ========================================= */
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 label {
   font-weight: 500;
 }
 
 input {
+  width: 100%;
   height: 48px;
   padding: 0 16px;
   font-family: inherit;
@@ -83,17 +53,28 @@ input {
   border-radius: var(--raio-campo);
 }
 
-#email-ajuda {
-  margin: 0 0 16px;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--texto-secundario);
+/* Foco visível em tudo que é clicável */
+a:focus-visible,
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--violeta);
+  outline-offset: 2px;
+}
+
+/* Esconde da tela, mas o leitor de tela ainda lê */
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 /* =========================================
-   5. BOTÃO PRIMÁRIO
+   3. BOTÃO PRIMÁRIO
    ========================================= */
-button {
+.botao-primario {
   min-height: 48px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -106,10 +87,207 @@ button {
 }
 
 /* =========================================
-   6. FOCO VISÍVEL (acessibilidade)
+   4. TELA "ENTRAR"
    ========================================= */
-input:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--violeta);
-  outline-offset: 2px;
+.tela-entrar {
+  min-height: 100vh;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 48px 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.tela-entrar img {
+  height: auto;
+}
+
+.tela-entrar h1 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.tela-entrar form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#email-ajuda {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-secundario);
+}
+
+/* =========================================
+   5. TELA "INÍCIO"
+   ========================================= */
+.tela-inicio {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Cabeçalho */
+.topo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.topo img {
+  height: auto;
+}
+
+.saudacao {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+/* Subtítulos de seção */
+.titulo-secao {
+  margin: 0 0 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+/* =========================================
+   6. CHIPS DE CATEGORIA
+   ========================================= */
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0 0 4px;
+  list-style: none;
+}
+
+.chip {
+  min-height: 36px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+  color: var(--indigo);
+  background-color: var(--lilas-claro);
+  border: none;
+  border-radius: var(--raio-pilula);
+  cursor: pointer;
+}
+
+.chip[aria-pressed="true"] {
+  color: var(--branco);
+  background-color: var(--violeta);
+}
+
+/* =========================================
+   7. CARTÕES DE ITEM
+   ========================================= */
+.lista-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cartao {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background-color: var(--branco);
+  border-radius: var(--raio-campo);
+  box-shadow: var(--sombra-cartao);
+}
+
+.cartao-foto {
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  background-color: var(--areia);
+  border-radius: var(--raio-pequeno);
+}
+
+.cartao-nome {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.cartao-detalhe {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-secundario);
+}
+
+/* Selos de status */
+.selos {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.selo {
+  padding: 2px 8px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: var(--raio-pequeno);
+}
+
+.selo-disponivel {
+  background-color: var(--lilas-claro);
+}
+
+.selo-novo {
+  background-color: var(--ambar);
+}
+
+.selo-devolvido {
+  color: var(--sucesso-texto);
+  background-color: var(--sucesso-fundo);
+}
+
+/* =========================================
+   8. AVISO DE DICA
+   ========================================= */
+.aviso-dica {
+  padding: 16px;
+  background-color: var(--areia);
+  border-radius: var(--raio-campo);
+}
+
+.aviso-dica strong {
+  display: block;
+}
+
+.aviso-dica p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
 }
