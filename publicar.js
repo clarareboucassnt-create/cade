@@ -26,15 +26,8 @@ const secaoSucesso = document.querySelector("#secao-sucesso");
 
 // =========================================
 // 2. DATA DE HOJE COMO PADRÃO
+// (a função dataDeHoje está no comum.js)
 // =========================================
-function dataDeHoje() {
-  const agora = new Date();
-  const ano = agora.getFullYear();
-  const mes = String(agora.getMonth() + 1).padStart(2, "0");
-  const dia = String(agora.getDate()).padStart(2, "0");
-  return ano + "-" + mes + "-" + dia;
-}
-
 campoData.value = dataDeHoje();
 campoData.max = dataDeHoje();
 
@@ -91,27 +84,26 @@ function validarData() {
 
 // Valida cada campo quando a pessoa sai dele
 campoNome.addEventListener("blur", validarNome);
+
+// Se o nome estava com erro, o erro some enquanto a pessoa digita.
+// (Assim a tela não "pula" no momento em que ela toca no próximo campo.)
+campoNome.addEventListener("input", function () {
+  if (campoNome.hasAttribute("aria-invalid")) {
+    validarNome();
+  }
+});
 grupoCategoria.addEventListener("change", validarCategoria);
 campoLocal.addEventListener("change", validarLocal);
 campoData.addEventListener("change", validarData);
 
 // =========================================
 // 5. GUARDAR NO NAVEGADOR (localStorage)
+// (lerItensPublicados e guardarItensPublicados estão no comum.js)
 // =========================================
-function lerItensPublicados() {
-  const textoGuardado = localStorage.getItem("cade-itens");
-
-  if (textoGuardado === null) {
-    return [];
-  }
-
-  return JSON.parse(textoGuardado);
-}
-
 function guardarItem(item) {
   const itens = lerItensPublicados();
   itens.push(item);
-  localStorage.setItem("cade-itens", JSON.stringify(itens));
+  guardarItensPublicados(itens);
 }
 
 // =========================================
@@ -144,20 +136,29 @@ formulario.addEventListener("submit", function (evento) {
   }
 
   // Tudo certo: monta o item e guarda
+  const agora = Date.now();
+
   const item = {
+    id: "publicado-" + agora,
     nome: campoNome.value.trim(),
     categoria: formulario.querySelector('input[name="categoria"]:checked').value,
     local: campoLocal.value,
     data: campoData.value,
     descricao: campoDescricao.value.trim(),
     deixou: formulario.querySelector('input[name="deixou"]:checked').value,
-    publicadoEm: Date.now()
+    status: "Disponível",
+    publicadoEm: agora
   };
 
   guardarItem(item);
+
+  // O botão "Ver item" leva para o item que acabou de ser publicado
+  document.querySelector("#link-ver-item").href = "item.html?id=" + item.id;
 
   // Troca o formulário pela tela de sucesso
   secaoFormulario.hidden = true;
   secaoSucesso.hidden = false;
   secaoSucesso.focus();
 });
+
+desenharIcones();

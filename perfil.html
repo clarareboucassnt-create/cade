@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil | Cadê?</title>
+    <link rel="icon" href="assets/marca/cade-icone-app-claro.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <main class="tela-inicio">
+
+      <h1 class="titulo-tela">Perfil</h1>
+
+      <section class="perfil-cartao" aria-label="Seus dados">
+        <div class="perfil-avatar" aria-hidden="true">C</div>
+        <div>
+          <p class="perfil-nome">Clara</p>
+          <p class="cartao-detalhe">Estudante · UCSAL</p>
+        </div>
+      </section>
+
+      <dl class="item-info">
+        <dt>Itens publicados</dt>
+        <dd id="total-publicados">0</dd>
+
+        <dt>Solicitações</dt>
+        <dd id="total-solicitacoes">0</dd>
+      </dl>
+
+      <aside class="aviso-dica">
+        <strong>Seus dados ficam neste aparelho</strong>
+        <p>Este é um protótipo: o que você publica fica guardado só neste navegador.</p>
+      </aside>
+
+      <div class="aviso-sucesso" id="aviso-apagado" role="status" tabindex="-1" hidden>
+        <strong>Dados apagados</strong>
+        <p>O Cadê? voltou a ter só os itens de exemplo.</p>
+      </div>
+
+      <div class="perfil-botoes">
+        <button type="button" class="botao-secundario" id="botao-apagar">Apagar meus dados de teste</button>
+        <a href="index.html" class="botao-texto">Sair</a>
+      </div>
+
+    </main>
+
+    <!-- CONFIRMAÇÃO -->
+    <dialog class="modal" id="modal-apagar" aria-labelledby="titulo-apagar" aria-describedby="texto-apagar">
+      <h2 id="titulo-apagar">Apagar seus dados de teste?</h2>
+      <p class="texto-modal" id="texto-apagar">
+        Os itens que você publicou e as suas solicitações vão sumir deste navegador.
+        Os itens de exemplo continuam.
+      </p>
+      <div class="modal-botoes">
+        <button type="button" class="botao-primario" id="botao-confirmar-apagar">Sim, apagar</button>
+        <button type="button" class="botao-texto" id="botao-cancelar-apagar">Cancelar</button>
+      </div>
+    </dialog>
+
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+    <nav class="barra-inferior" aria-label="Navegação principal">
+      <ul>
+        <li>
+          <a href="inicio.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="house" aria-hidden="true"></i></span>
+            Início
+          </a>
+        </li>
+        <li>
+          <a href="busca.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="search" aria-hidden="true"></i></span>
+            Buscar
+          </a>
+        </li>
+        <li>
+          <a href="publicar.html" class="botao-publicar" aria-label="Publicar item">
+            <i data-lucide="plus" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="meus-itens.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="package" aria-hidden="true"></i></span>
+            Meus itens
+          </a>
+        </li>
+        <li>
+          <a href="perfil.html" class="barra-link" aria-current="page">
+            <span class="barra-icone"><i data-lucide="user" aria-hidden="true"></i></span>
+            Perfil
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Biblioteca de ícones Lucide -->
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Código comum a todas as telas -->
+    <script src="comum.js"></script>
+
+    <!-- O comportamento desta tela -->
+    <script src="perfil.js"></script>
+  </body>
+</html>

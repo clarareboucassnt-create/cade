@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus itens | Cadê?</title>
+    <link rel="icon" href="assets/marca/cade-icone-app-claro.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <main class="tela-inicio">
+
+      <h1 class="titulo-tela">Meus itens</h1>
+
+      <!-- ABAS -->
+      <div class="abas" role="tablist" aria-label="Meus itens">
+        <button type="button" class="aba" role="tab" id="aba-publicados" aria-controls="painel-publicados" aria-selected="true">
+          Publicados
+        </button>
+        <button type="button" class="aba" role="tab" id="aba-solicitacoes" aria-controls="painel-solicitacoes" aria-selected="false" tabindex="-1">
+          Minhas solicitações
+        </button>
+      </div>
+
+      <!-- AVISO DE SUCESSO -->
+      <div class="aviso-sucesso" id="aviso-devolvido" role="status" tabindex="-1" hidden>
+        <strong>Item marcado como devolvido</strong>
+        <p>Obrigado por avisar. O selo já foi atualizado.</p>
+      </div>
+
+      <!-- PAINEL: PUBLICADOS -->
+      <section class="painel" role="tabpanel" id="painel-publicados" aria-labelledby="aba-publicados">
+        <ul class="lista-itens" id="lista-publicados"></ul>
+
+        <div class="estado-vazio" id="vazio-publicados" hidden>
+          <i data-lucide="package-open" aria-hidden="true"></i>
+          <p>Você ainda não publicou nenhum item. Encontrou algo? Toque no + para ajudar.</p>
+          <a href="publicar.html" class="botao-destaque">Publicar item</a>
+        </div>
+      </section>
+
+      <!-- PAINEL: MINHAS SOLICITAÇÕES -->
+      <section class="painel" role="tabpanel" id="painel-solicitacoes" aria-labelledby="aba-solicitacoes" hidden>
+        <ul class="lista-itens" id="lista-solicitacoes"></ul>
+
+        <div class="estado-vazio" id="vazio-solicitacoes" hidden>
+          <i data-lucide="inbox" aria-hidden="true"></i>
+          <p>Você ainda não pediu nenhum item. Quando achar o seu, abra o item e toque em "É meu!".</p>
+          <a href="busca.html" class="botao-secundario">Buscar itens</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- CONFIRMAÇÃO -->
+    <dialog class="modal" id="modal-confirmar" aria-labelledby="titulo-confirmar" aria-describedby="texto-confirmar">
+      <h2 id="titulo-confirmar">Marcar como devolvido?</h2>
+      <p class="texto-modal" id="texto-confirmar">
+        <span id="nome-confirmar"></span> vai aparecer como devolvido para todo mundo.
+      </p>
+      <div class="modal-botoes">
+        <button type="button" class="botao-primario" id="botao-confirmar">Sim, foi devolvido</button>
+        <button type="button" class="botao-texto" id="botao-cancelar-confirmar">Cancelar</button>
+      </div>
+    </dialog>
+
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+    <nav class="barra-inferior" aria-label="Navegação principal">
+      <ul>
+        <li>
+          <a href="inicio.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="house" aria-hidden="true"></i></span>
+            Início
+          </a>
+        </li>
+        <li>
+          <a href="busca.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="search" aria-hidden="true"></i></span>
+            Buscar
+          </a>
+        </li>
+        <li>
+          <a href="publicar.html" class="botao-publicar" aria-label="Publicar item">
+            <i data-lucide="plus" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="meus-itens.html" class="barra-link" aria-current="page">
+            <span class="barra-icone"><i data-lucide="package" aria-hidden="true"></i></span>
+            Meus itens
+          </a>
+        </li>
+        <li>
+          <a href="perfil.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="user" aria-hidden="true"></i></span>
+            Perfil
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- MODELO DE CARTÃO (usado pelo JavaScript) -->
+    <template id="modelo-cartao">
+      <li class="cartao">
+        <div class="cartao-foto" aria-hidden="true">
+          <i data-lucide="package"></i>
+        </div>
+        <div class="cartao-info">
+          <h3 class="cartao-nome">
+            <a class="cartao-link" href="#"></a>
+          </h3>
+          <p class="cartao-detalhe">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <span class="cartao-local"></span>
+          </p>
+          <p class="cartao-detalhe">
+            <i data-lucide="calendar" aria-hidden="true"></i>
+            <span class="cartao-data"></span>
+          </p>
+          <div class="selos"></div>
+        </div>
+      </li>
+    </template>
+
+    <!-- Biblioteca de ícones Lucide -->
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Código comum a todas as telas -->
+    <script src="comum.js"></script>
+
+    <!-- O comportamento desta tela -->
+    <script src="meus-itens.js"></script>
+  </body>
+</html>

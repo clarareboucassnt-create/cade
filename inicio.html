@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início | Cadê?</title>
+    <link rel="icon" href="assets/marca/cade-icone-app-claro.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,105 +22,41 @@
         <h1 class="saudacao">Olá, Clara</h1>
       </header>
 
-      <!-- BUSCA -->
-      <form class="busca" role="search">
+      <!-- BUSCA: ao enviar, vai para a tela de Busca -->
+      <form class="busca" role="search" action="busca.html" method="get">
         <label for="campo-busca" class="visualmente-oculto">Buscar objeto</label>
         <input
           type="search"
           id="campo-busca"
-          name="busca"
+          name="q"
           placeholder="Buscar por nome do objeto"
+          enterkeyhint="search"
         >
       </form>
 
       <!-- CHIPS DE CATEGORIA -->
       <section aria-labelledby="titulo-categorias">
-        <h2 id="titulo-categorias" class="visualmente-oculto">Categorias</h2>
-        <ul class="chips">
-          <li><button type="button" class="chip" aria-pressed="true">Todos</button></li>
-          <li><button type="button" class="chip" aria-pressed="false">Eletrônicos</button></li>
-          <li><button type="button" class="chip" aria-pressed="false">Documentos</button></li>
-          <li><button type="button" class="chip" aria-pressed="false">Chaves</button></li>
-          <li><button type="button" class="chip" aria-pressed="false">Garrafas</button></li>
-          <li><button type="button" class="chip" aria-pressed="false">Roupas e acessórios</button></li>
-          <li><button type="button" class="chip" aria-pressed="false">Material escolar</button></li>
-          <li><button type="button" class="chip" aria-pressed="false">Outros</button></li>
+        <h2 id="titulo-categorias" class="visualmente-oculto">Filtrar por categoria</h2>
+        <ul class="chips" id="chips-categorias">
+          <li><button type="button" class="chip" aria-pressed="true" data-categoria="">Todos</button></li>
+          <li><button type="button" class="chip" aria-pressed="false" data-categoria="Eletrônicos">Eletrônicos</button></li>
+          <li><button type="button" class="chip" aria-pressed="false" data-categoria="Documentos">Documentos</button></li>
+          <li><button type="button" class="chip" aria-pressed="false" data-categoria="Chaves">Chaves</button></li>
+          <li><button type="button" class="chip" aria-pressed="false" data-categoria="Garrafas">Garrafas</button></li>
+          <li><button type="button" class="chip" aria-pressed="false" data-categoria="Roupas e acessórios">Roupas e acessórios</button></li>
+          <li><button type="button" class="chip" aria-pressed="false" data-categoria="Material escolar">Material escolar</button></li>
+          <li><button type="button" class="chip" aria-pressed="false" data-categoria="Outros">Outros</button></li>
         </ul>
       </section>
 
-      <!-- LISTA DE ITENS -->
+      <!-- LISTA DE ITENS (preenchida pelo JavaScript) -->
       <section aria-labelledby="titulo-recentes">
         <h2 id="titulo-recentes" class="titulo-secao">Encontrados recentemente</h2>
+        <ul class="lista-itens" id="lista-itens"></ul>
 
-        <ul class="lista-itens" id="lista-itens">
-
-          <li class="cartao">
-            <div class="cartao-foto" aria-hidden="true">
-              <i data-lucide="glass-water"></i>
-            </div>
-            <div>
-                <h3 class="cartao-nome">
-                <a href="item.html" class="cartao-link">Garrafa térmica azul</a>
-              </h3>
-              <p class="cartao-detalhe">
-                <i data-lucide="map-pin" aria-hidden="true"></i>
-                Biblioteca, 2º andar
-              </p>
-              <p class="cartao-detalhe">
-                <i data-lucide="calendar" aria-hidden="true"></i>
-                Encontrado em 23/11
-              </p>
-              <div class="selos">
-                <span class="selo selo-disponivel">Disponível</span>
-                <span class="selo selo-novo">Novo</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="cartao">
-            <div class="cartao-foto" aria-hidden="true">
-              <i data-lucide="smartphone-charging"></i>
-            </div>
-            <div>
-              <h3 class="cartao-nome">Carregador de celular USB-C</h3>
-              <p class="cartao-detalhe">
-                <i data-lucide="map-pin" aria-hidden="true"></i>
-                Laboratório de Informática
-              </p>
-              <p class="cartao-detalhe">
-                <i data-lucide="calendar" aria-hidden="true"></i>
-                Encontrado em 22/11
-              </p>
-              <div class="selos">
-                <span class="selo selo-disponivel">Disponível</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="cartao">
-            <div class="cartao-foto" aria-hidden="true">
-              <i data-lucide="key-round"></i>
-            </div>
-            <div>
-              <h3 class="cartao-nome">Chaveiro com 2 chaves</h3>
-              <p class="cartao-detalhe">
-                <i data-lucide="map-pin" aria-hidden="true"></i>
-                Bloco B
-              </p>
-              <p class="cartao-detalhe">
-                <i data-lucide="calendar" aria-hidden="true"></i>
-                Encontrado em 10/11
-              </p>
-              <div class="selos">
-                <span class="selo selo-devolvido">
-                  <i data-lucide="check" aria-hidden="true"></i>
-                  Devolvido
-                </span>
-              </div>
-            </div>
-          </li>
-
-        </ul>
+        <div class="estado-vazio" id="estado-vazio" hidden>
+          <p>Nenhum item nesta categoria por enquanto.</p>
+        </div>
       </section>
 
       <!-- DICA -->
@@ -157,7 +94,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="barra-link">
+          <a href="perfil.html" class="barra-link">
             <span class="barra-icone"><i data-lucide="user" aria-hidden="true"></i></span>
             Perfil
           </a>
@@ -171,8 +108,10 @@
         <div class="cartao-foto" aria-hidden="true">
           <i data-lucide="package"></i>
         </div>
-        <div>
-          <h3 class="cartao-nome"></h3>
+        <div class="cartao-info">
+          <h3 class="cartao-nome">
+            <a class="cartao-link" href="#"></a>
+          </h3>
           <p class="cartao-detalhe">
             <i data-lucide="map-pin" aria-hidden="true"></i>
             <span class="cartao-local"></span>
@@ -181,21 +120,18 @@
             <i data-lucide="calendar" aria-hidden="true"></i>
             <span class="cartao-data"></span>
           </p>
-          <div class="selos">
-            <span class="selo selo-disponivel">Disponível</span>
-            <span class="selo selo-novo">Novo</span>
-          </div>
+          <div class="selos"></div>
         </div>
       </li>
     </template>
 
     <!-- Biblioteca de ícones Lucide -->
     <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-    <script>
-      lucide.createIcons();
-    </script>
 
-    <!-- Mostra os itens publicados -->
+    <!-- Código comum a todas as telas -->
+    <script src="comum.js"></script>
+
+    <!-- O comportamento desta tela -->
     <script src="inicio.js"></script>
   </body>
 </html>

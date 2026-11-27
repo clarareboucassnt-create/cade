@@ -824,6 +824,7 @@ select[aria-invalid="true"] {
 /* Botão âmbar: só para "Publicar item" */
 .botao-destaque {
   min-height: 48px;
+  padding: 0 24px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -873,4 +874,280 @@ a.botao-primario {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+}
+
+/* =========================================
+   16. PEÇAS USADAS EM VÁRIAS TELAS
+   ========================================= */
+
+/* Títulos de tela dentro do layout com gap */
+.tela-inicio > .titulo-tela {
+  margin: 0;
+}
+
+/* Área de texto do cartão ocupa o resto do espaço */
+.cartao-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Botão secundário: contorno, texto índigo */
+.botao-secundario {
+  min-height: 48px;
+  padding: 0 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--indigo);
+  background-color: transparent;
+  border: 1px solid var(--contorno);
+  border-radius: var(--raio-pilula);
+  cursor: pointer;
+}
+
+/* Links com cara de botão */
+a.botao-secundario,
+a.botao-destaque,
+a.botao-texto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+a.botao-texto {
+  text-decoration: underline;
+}
+
+/* Estado vazio: mensagem centralizada com ícone */
+.estado-vazio {
+  padding: 32px 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  text-align: center;
+  color: var(--texto-secundario);
+}
+
+.estado-vazio p {
+  margin: 0;
+}
+
+.estado-vazio svg {
+  width: 40px;
+  height: 40px;
+  color: #A678B9; /* lavanda */
+}
+
+.estado-vazio .titulo-tela {
+  margin: 0;
+  color: var(--indigo);
+}
+
+/* Textos e botões dentro dos modais */
+.texto-modal {
+  margin: 0 0 24px;
+}
+
+.modal-botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* =========================================
+   17. TELA "BUSCA E FILTROS"
+   ========================================= */
+.barra-resultados {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.contador {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-secundario);
+}
+
+.chip-filtros {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chip-filtros svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Folha inferior: um <dialog> preso embaixo da tela */
+.folha {
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  margin: auto auto 0;
+  padding: 24px 16px;
+
+  color: var(--indigo);
+  background-color: var(--branco);
+  border: none;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 8px 24px rgba(45, 43, 85, 0.18);
+}
+
+.folha::backdrop {
+  background-color: rgba(45, 43, 85, 0.5);
+}
+
+#form-filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.folha-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.folha-topo h2 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.botao-icone {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--indigo);
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.folha-botoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* =========================================
+   18. TELA "DETALHE" (versão para qualquer item)
+   ========================================= */
+.item-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================================
+   19. TELA "PUBLICAR": botões do sucesso
+   ========================================= */
+.sucesso-botoes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =========================================
+   20. TELA "MEUS ITENS"
+   ========================================= */
+.abas {
+  padding: 4px;
+  display: flex;
+  background-color: var(--branco);
+  border-radius: var(--raio-pilula);
+  box-shadow: var(--sombra-cartao);
+}
+
+.aba {
+  flex: 1;
+  min-height: 44px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--texto-secundario);
+  background: none;
+  border: none;
+  border-radius: var(--raio-pilula);
+  cursor: pointer;
+}
+
+.aba[aria-selected="true"] {
+  color: var(--branco);
+  background-color: var(--violeta);
+}
+
+/* O botão do cartão fica ACIMA do link esticado do cartão */
+.botao-cartao {
+  position: relative;
+  z-index: 1;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.cartao-pedido {
+  margin-top: 8px;
+}
+
+/* =========================================
+   21. TELA "PERFIL"
+   ========================================= */
+.perfil-cartao {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--branco);
+  border-radius: var(--raio-campo);
+  box-shadow: var(--sombra-cartao);
+}
+
+.perfil-avatar {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--branco);
+  background-color: var(--violeta);
+  border-radius: 50%;
+}
+
+.perfil-nome {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.perfil-botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

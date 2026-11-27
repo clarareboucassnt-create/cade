@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar | Cadê?</title>
+    <link rel="icon" href="assets/marca/cade-icone-app-claro.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <main class="tela-inicio">
+
+      <h1 class="titulo-tela">Buscar</h1>
+
+      <!-- CAMPO DE BUSCA -->
+      <form class="busca" role="search" id="form-busca">
+        <label for="campo-busca" class="visualmente-oculto">Buscar objeto</label>
+        <input
+          type="search"
+          id="campo-busca"
+          name="q"
+          placeholder="Buscar por nome do objeto"
+          enterkeyhint="search"
+        >
+      </form>
+
+      <!-- CONTADOR E BOTÃO DE FILTROS -->
+      <div class="barra-resultados">
+        <p class="contador" id="contador" role="status">Carregando itens…</p>
+        <button type="button" class="chip chip-filtros" id="botao-filtros" aria-haspopup="dialog">
+          <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+          <span id="texto-filtros">Filtros</span>
+        </button>
+      </div>
+
+      <!-- RESULTADOS -->
+      <section aria-labelledby="titulo-resultados">
+        <h2 id="titulo-resultados" class="visualmente-oculto">Resultados</h2>
+        <ul class="lista-itens" id="lista-itens"></ul>
+
+        <div class="estado-vazio" id="estado-vazio" hidden>
+          <i data-lucide="search-x" aria-hidden="true"></i>
+          <p>Nenhum item encontrado com esses filtros. Que tal limpar a busca?</p>
+          <button type="button" class="botao-secundario" id="botao-limpar-tudo">Limpar filtros</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOLHA INFERIOR DE FILTROS -->
+    <dialog class="folha" id="folha-filtros" aria-labelledby="titulo-filtros">
+      <form id="form-filtros" method="dialog">
+        <div class="folha-topo">
+          <h2 id="titulo-filtros">Filtros</h2>
+          <button type="button" class="botao-icone" id="botao-fechar-filtros" aria-label="Fechar filtros">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <fieldset class="campo grupo">
+          <legend>Categoria</legend>
+          <div class="chips-opcoes">
+                <label class="chip-opcao"><input type="radio" name="categoria" value="" checked> Todas</label>
+                <label class="chip-opcao"><input type="radio" name="categoria" value="Eletrônicos"> Eletrônicos</label>
+                <label class="chip-opcao"><input type="radio" name="categoria" value="Documentos"> Documentos</label>
+                <label class="chip-opcao"><input type="radio" name="categoria" value="Chaves"> Chaves</label>
+                <label class="chip-opcao"><input type="radio" name="categoria" value="Garrafas"> Garrafas</label>
+                <label class="chip-opcao"><input type="radio" name="categoria" value="Roupas e acessórios"> Roupas e acessórios</label>
+                <label class="chip-opcao"><input type="radio" name="categoria" value="Material escolar"> Material escolar</label>
+                <label class="chip-opcao"><input type="radio" name="categoria" value="Outros"> Outros</label>
+          </div>
+        </fieldset>
+
+        <div class="campo">
+          <label for="filtro-local">Local do campus</label>
+          <select id="filtro-local" name="local">
+            <option value="">Todos os locais</option>
+                <option>Biblioteca</option>
+                <option>Cantina</option>
+                <option>Bloco A</option>
+                <option>Bloco B</option>
+                <option>Laboratório de Informática</option>
+                <option>Auditório</option>
+                <option>Estacionamento</option>
+                <option>Quadra</option>
+          </select>
+        </div>
+
+        <fieldset class="campo grupo">
+          <legend>Período</legend>
+          <div class="chips-opcoes">
+                <label class="chip-opcao"><input type="radio" name="periodo" value="" checked> Qualquer data</label>
+                <label class="chip-opcao"><input type="radio" name="periodo" value="0"> Hoje</label>
+                <label class="chip-opcao"><input type="radio" name="periodo" value="7"> Últimos 7 dias</label>
+                <label class="chip-opcao"><input type="radio" name="periodo" value="30"> Últimos 30 dias</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="campo grupo">
+          <legend>Status</legend>
+          <div class="chips-opcoes">
+                <label class="chip-opcao"><input type="radio" name="status" value="" checked> Todos</label>
+                <label class="chip-opcao"><input type="radio" name="status" value="Disponível"> Disponível</label>
+                <label class="chip-opcao"><input type="radio" name="status" value="Devolvido"> Devolvido</label>
+          </div>
+        </fieldset>
+
+        <div class="folha-botoes">
+          <button type="button" class="botao-secundario" id="botao-limpar-filtros">Limpar</button>
+          <button type="submit" class="botao-primario">Ver resultados</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR -->
+    <nav class="barra-inferior" aria-label="Navegação principal">
+      <ul>
+        <li>
+          <a href="inicio.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="house" aria-hidden="true"></i></span>
+            Início
+          </a>
+        </li>
+        <li>
+          <a href="busca.html" class="barra-link" aria-current="page">
+            <span class="barra-icone"><i data-lucide="search" aria-hidden="true"></i></span>
+            Buscar
+          </a>
+        </li>
+        <li>
+          <a href="publicar.html" class="botao-publicar" aria-label="Publicar item">
+            <i data-lucide="plus" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="meus-itens.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="package" aria-hidden="true"></i></span>
+            Meus itens
+          </a>
+        </li>
+        <li>
+          <a href="perfil.html" class="barra-link">
+            <span class="barra-icone"><i data-lucide="user" aria-hidden="true"></i></span>
+            Perfil
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- MODELO DE CARTÃO (usado pelo JavaScript) -->
+    <template id="modelo-cartao">
+      <li class="cartao">
+        <div class="cartao-foto" aria-hidden="true">
+          <i data-lucide="package"></i>
+        </div>
+        <div class="cartao-info">
+          <h3 class="cartao-nome">
+            <a class="cartao-link" href="#"></a>
+          </h3>
+          <p class="cartao-detalhe">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <span class="cartao-local"></span>
+          </p>
+          <p class="cartao-detalhe">
+            <i data-lucide="calendar" aria-hidden="true"></i>
+            <span class="cartao-data"></span>
+          </p>
+          <div class="selos"></div>
+        </div>
+      </li>
+    </template>
+
+    <!-- Biblioteca de ícones Lucide -->
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Código comum a todas as telas -->
+    <script src="comum.js"></script>
+
+    <!-- O comportamento desta tela -->
+    <script src="busca.js"></script>
+  </body>
+</html>
