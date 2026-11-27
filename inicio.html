@@ -51,7 +51,7 @@
       <section aria-labelledby="titulo-recentes">
         <h2 id="titulo-recentes" class="titulo-secao">Encontrados recentemente</h2>
 
-        <ul class="lista-itens">
+        <ul class="lista-itens" id="lista-itens">
 
           <li class="cartao">
             <div class="cartao-foto" aria-hidden="true">
@@ -165,10 +165,37 @@
       </ul>
     </nav>
 
+    <!-- MODELO DE CARTÃO (usado pelo JavaScript) -->
+    <template id="modelo-cartao">
+      <li class="cartao">
+        <div class="cartao-foto" aria-hidden="true">
+          <i data-lucide="package"></i>
+        </div>
+        <div>
+          <h3 class="cartao-nome"></h3>
+          <p class="cartao-detalhe">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <span class="cartao-local"></span>
+          </p>
+          <p class="cartao-detalhe">
+            <i data-lucide="calendar" aria-hidden="true"></i>
+            <span class="cartao-data"></span>
+          </p>
+          <div class="selos">
+            <span class="selo selo-disponivel">Disponível</span>
+            <span class="selo selo-novo">Novo</span>
+          </div>
+        </div>
+      </li>
+    </template>
+
     <!-- Biblioteca de ícones Lucide -->
     <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
     <script>
       lucide.createIcons();
     </script>
+
+    <!-- Mostra os itens publicados -->
+    <script src="inicio.js"></script>
   </body>
 </html>
