@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar item | Cadê?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <main class="tela-publicar">
+
+      <a href="inicio.html" class="voltar">
+        <i data-lucide="arrow-left" aria-hidden="true"></i>
+        Voltar
+      </a>
+
+      <!-- ============ PARTE 1: O FORMULÁRIO ============ -->
+      <section id="secao-formulario">
+        <h1 class="titulo-tela">Publicar item</h1>
+
+        <form id="form-publicar" class="formulario" novalidate>
+
+          <!-- FOTO -->
+          <div class="campo">
+            <label for="campo-foto" class="area-foto">
+              <img id="previa-foto" alt="Prévia da foto escolhida" hidden>
+              <span id="texto-foto" class="area-foto-texto">
+                <i data-lucide="camera" aria-hidden="true"></i>
+                Adicionar foto
+              </span>
+            </label>
+            <input type="file" id="campo-foto" accept="image/*" class="visualmente-oculto">
+          </div>
+
+          <!-- NOME -->
+          <div class="campo">
+            <label for="campo-nome">Nome do item</label>
+            <input type="text" id="campo-nome" aria-describedby="erro-nome">
+            <p class="mensagem-erro" id="erro-nome" hidden>
+              <i data-lucide="circle-alert" aria-hidden="true"></i>
+              Escreva o nome do item, por exemplo: Garrafa azul.
+            </p>
+          </div>
+
+          <!-- CATEGORIA -->
+          <fieldset class="campo grupo" id="grupo-categoria" aria-describedby="erro-categoria">
+            <legend>Categoria</legend>
+            <div class="chips-opcoes">
+              <label class="chip-opcao"><input type="radio" name="categoria" value="Eletrônicos"> Eletrônicos</label>
+              <label class="chip-opcao"><input type="radio" name="categoria" value="Documentos"> Documentos</label>
+              <label class="chip-opcao"><input type="radio" name="categoria" value="Chaves"> Chaves</label>
+              <label class="chip-opcao"><input type="radio" name="categoria" value="Garrafas"> Garrafas</label>
+              <label class="chip-opcao"><input type="radio" name="categoria" value="Roupas e acessórios"> Roupas e acessórios</label>
+              <label class="chip-opcao"><input type="radio" name="categoria" value="Material escolar"> Material escolar</label>
+              <label class="chip-opcao"><input type="radio" name="categoria" value="Outros"> Outros</label>
+            </div>
+            <p class="mensagem-erro" id="erro-categoria" hidden>
+              <i data-lucide="circle-alert" aria-hidden="true"></i>
+              Escolha uma categoria.
+            </p>
+          </fieldset>
+
+          <!-- LOCAL -->
+          <div class="campo">
+            <label for="campo-local">Onde foi encontrado?</label>
+            <select id="campo-local" aria-describedby="erro-local">
+              <option value="">Escolha um local</option>
+              <option>Biblioteca</option>
+              <option>Cantina</option>
+              <option>Bloco A</option>
+              <option>Bloco B</option>
+              <option>Laboratório de Informática</option>
+              <option>Auditório</option>
+              <option>Estacionamento</option>
+              <option>Quadra</option>
+            </select>
+            <p class="mensagem-erro" id="erro-local" hidden>
+              <i data-lucide="circle-alert" aria-hidden="true"></i>
+              Escolha onde o item foi encontrado.
+            </p>
+          </div>
+
+          <!-- DATA -->
+          <div class="campo">
+            <label for="campo-data">Data em que foi encontrado</label>
+            <input type="date" id="campo-data" aria-describedby="erro-data">
+            <p class="mensagem-erro" id="erro-data" hidden>
+              <i data-lucide="circle-alert" aria-hidden="true"></i>
+              Escolha uma data de hoje ou de antes.
+            </p>
+          </div>
+
+          <!-- DESCRIÇÃO -->
+          <div class="campo">
+            <label for="campo-descricao">Descrição (opcional)</label>
+            <textarea id="campo-descricao" aria-describedby="ajuda-descricao"></textarea>
+            <p class="texto-ajuda" id="ajuda-descricao">
+              Não conte detalhes que só o dono saberia. Eles servem para conferir quem é o dono.
+            </p>
+          </div>
+
+          <!-- ONDE DEIXOU -->
+          <fieldset class="campo grupo">
+            <legend>Onde você deixou o objeto?</legend>
+            <label class="opcao-radio">
+              <input type="radio" name="deixou" value="Portaria principal" checked>
+              Portaria principal
+            </label>
+            <label class="opcao-radio">
+              <input type="radio" name="deixou" value="Comigo">
+              Comigo
+            </label>
+          </fieldset>
+
+          <button type="submit" class="botao-destaque">Publicar item</button>
+        </form>
+      </section>
+
+      <!-- ============ PARTE 2: A TELA DE SUCESSO ============ -->
+      <section id="secao-sucesso" class="sucesso" tabindex="-1" hidden>
+        <div class="sucesso-icone" aria-hidden="true">
+          <i data-lucide="check"></i>
+        </div>
+        <h1 class="titulo-tela">Item publicado!</h1>
+        <p>Obrigado por ajudar.</p>
+        <a href="inicio.html" class="botao-primario">Voltar ao início</a>
+      </section>
+
+    </main>
+
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script src="publicar.js"></script>
+  </body>
+</html>

@@ -658,3 +658,219 @@ textarea[aria-invalid="true"] {
   outline: 2px solid var(--violeta);
   outline-offset: 2px;
 }
+
+/* =========================================
+   15. TELA "PUBLICAR ITEM"
+   ========================================= */
+.tela-publicar {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 8px 16px 48px;
+}
+
+.titulo-tela {
+  margin: 8px 0 24px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Cada campo: rótulo, caixa e mensagens empilhados */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* fieldset sem a borda e o espaço padrão */
+.grupo {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.grupo legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Caixa de seleção (lista de locais) */
+select {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--indigo);
+  background-color: var(--branco);
+  border: 1px solid var(--contorno);
+  border-radius: var(--raio-campo);
+}
+
+select:focus-visible {
+  outline: 2px solid var(--violeta);
+  outline-offset: 2px;
+}
+
+/* Erro nos campos */
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border: 2px solid #B3261E;
+}
+
+/* Área da foto */
+.area-foto {
+  height: 160px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--areia);
+  border-radius: var(--raio-campo);
+  cursor: pointer;
+}
+
+.area-foto-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.area-foto-texto svg {
+  width: 32px;
+  height: 32px;
+  color: #A678B9; /* lavanda */
+}
+
+.area-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Anel de foco na área da foto (o input de verdade está escondido) */
+.area-foto:has(+ input:focus-visible) {
+  outline: 2px solid var(--violeta);
+  outline-offset: 2px;
+}
+
+/* Chips de categoria feitos com botões de rádio */
+.chips-opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip-opcao {
+  position: relative;
+  min-height: 36px;
+  padding: 0 16px;
+
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--indigo);
+  background-color: var(--lilas-claro);
+  border-radius: var(--raio-pilula);
+  cursor: pointer;
+}
+
+/* Esconde a bolinha do rádio, mas ele continua funcionando */
+.chip-opcao input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Chip escolhido */
+.chip-opcao:has(input:checked) {
+  color: var(--branco);
+  background-color: var(--violeta);
+}
+
+.chip-opcao:has(input:focus-visible) {
+  outline: 2px solid var(--violeta);
+  outline-offset: 2px;
+}
+
+/* Rádios comuns (Portaria / Comigo) */
+.opcao-radio {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.opcao-radio input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--violeta);
+}
+
+/* Botão âmbar: só para "Publicar item" */
+.botao-destaque {
+  min-height: 48px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--indigo);
+  background-color: var(--ambar);
+  border: none;
+  border-radius: var(--raio-pilula);
+  cursor: pointer;
+}
+
+/* Tela de sucesso */
+.sucesso {
+  padding-top: 48px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sucesso p {
+  margin: -16px 0 32px;
+}
+
+.sucesso-icone {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--sucesso-texto);
+  background-color: var(--sucesso-fundo);
+  border-radius: 50%;
+}
+
+.sucesso-icone svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* Um link com cara de botão */
+a.botao-primario {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
